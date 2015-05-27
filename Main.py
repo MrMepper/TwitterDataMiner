@@ -14,3 +14,7 @@ consumer_secret = APIlist[1]
 access_token = APIlist[2]
 access_secret = APIlist[3]
 
+auth = OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_secret)
+
+api = tweepy.API(auth)
