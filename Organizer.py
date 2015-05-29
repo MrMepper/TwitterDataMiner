@@ -11,7 +11,7 @@ class Organizer(object):
         self.filename = filename
 
     def organize(self):
-        with open (filename, "r") as f:
+        with open (self.filename, "r") as f:
             line = f.readline()
             tweet = json.loads(line)
             print(json.dumps(tweet, indent = 4))
