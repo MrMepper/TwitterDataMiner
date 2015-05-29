@@ -6,7 +6,7 @@ from tweepy import Stream
 from tweepy.streaming import StreamListener
 import json
 import Listener
-
+import Organizer
 #To keep keys secret, left them in a keys.txt file and read them to vars
 with open('keys.txt', 'r') as f:
     consumer_key = f.readline().rstrip()
@@ -24,4 +24,5 @@ MyListener = Listener.MyListener()
 twitter_stream = Stream(auth, MyListener)
 
 twitter_stream.filter(track=['#python'])
+
 
