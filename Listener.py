@@ -2,6 +2,7 @@ __author__ = 'Chris'
 import tweepy
 from tweepy.streaming import StreamListener
 
+
 class MyListener(StreamListener):
     def on_data(self, data):
         try:
