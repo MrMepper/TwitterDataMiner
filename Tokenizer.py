@@ -3,6 +3,7 @@ __author__ = 'Chris'
 from nltk.tokenize import word_tokenize
 import re
 
+#Two lists that hold Regular Expressions
 emoticons_str = r"""
     (?:
         [:=;] # Eyes
@@ -23,15 +24,20 @@ regex_str = [
     r'(?:\S)' # anything else
 ]
 
+#Add to re compiler
 tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
 emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
 
+#Insert data to be searched, returns a list of matches.
 def tokenize(s):
     return tokens_re.findall(s)
 
+#Takes in data to be searched, converts to lowercase if true
 def preprocess(s, lowercase=False):
+    #Calls and runs tokenize function, which returns a list of all matches
     tokens = tokenize(s)
     if lowercase:
+        #Iterates through list, converts to lowercase if it is not an emoticon
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
 
