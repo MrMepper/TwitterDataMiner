@@ -9,6 +9,7 @@ import Tokenizer
 fname = input("Enter file name")
 token = Tokenizer
 
+#Finds most common strings(words) from dictionary of tweets.
 with open(fname, 'r') as f:
     count_all = Counter()
     for line in f:

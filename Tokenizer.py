@@ -43,6 +43,7 @@ def preprocess(s, lowercase=False):
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
 
+#Test Code
 if __name__ == '__main__':
     with open('python.json', 'r') as f:
         for line in f:
