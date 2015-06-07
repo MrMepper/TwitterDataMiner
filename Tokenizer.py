@@ -2,8 +2,10 @@ __author__ = 'Chris'
 
 from nltk.tokenize import word_tokenize
 import re
+import json
 
 #Two lists that hold Regular Expressions
+
 emoticons_str = r"""
     (?:
         [:=;] # Eyes
@@ -40,4 +42,11 @@ def preprocess(s, lowercase=False):
         #Iterates through list, converts to lowercase if it is not an emoticon
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
+
+if __name__ == '__main__':
+    with open('python.json', 'r') as f:
+        for line in f:
+            tweet = json.loads(line)
+            tokens = preprocess(tweet['text'])
+            print(tokens)
 
