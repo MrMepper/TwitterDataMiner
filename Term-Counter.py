@@ -5,9 +5,13 @@ import operator
 import json
 from collections import Counter
 import Tokenizer
+from nltk.corpus import stopwords
+import string
 
 fname = input("Enter file name")
 token = Tokenizer
+punctuation = list(string.punctuation)
+stop = stopwords.words('english') + punctuation + ['rt', 'via']
 
 #Finds most common strings(words) from dictionary of tweets.
 with open(fname, 'r') as f:
