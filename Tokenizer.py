@@ -10,7 +10,7 @@ emoticons_str = r"""
     (?:
         [:=;] # Eyes
         [oO\-]? # Nose (optional)
-        [D\)\]\(\]/\\OpP] # Mouth
+        [D\)\[\(\]/\\OpP] # Mouth
     )"""
 
 regex_str = [
